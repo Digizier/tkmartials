@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Outer Corporate Blue Frame -->
+  <path d="M15 80H28V72H23V23H77V72H72V80H85V15H15V80Z" fill="#1B64B3"/>
+  
+  <!-- Bar 1 (Left Short) -->
+  <path d="M30 72H38V54L30 58V72Z" fill="#1B64B3"/>
+  
+  <!-- Bar 2 (Center-Left Tallest) -->
+  <path d="M42 72H50V25L42 30V72Z" fill="#1B64B3"/>
+  
+  <!-- Bar 3 (Center-Right Medium-Tall) -->
+  <path d="M54 72H62V36L54 41V72Z" fill="#1B64B3"/>
+  
+  <!-- Bar 4 (Right Medium) -->
+  <path d="M66 72H74V48L66 53V72Z" fill="#1B64B3"/>
+</svg>
