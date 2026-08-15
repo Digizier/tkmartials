@@ -82,9 +82,9 @@ export const Navbar: React.FC = () => {
 
       {/* Main Navbar */}
       <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-20 flex items-center justify-between gap-3 sm:gap-4">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3 sm:gap-4">
           {/* Logo & Brand Name */}
-          <a href="#" className="flex items-center shrink-0">
+          <a href="#" className="flex items-center shrink-0 py-1">
             <Logo variant="dark" size="md" />
           </a>
 

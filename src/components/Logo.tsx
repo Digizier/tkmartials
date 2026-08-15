@@ -16,14 +16,14 @@ export const Logo: React.FC<LogoProps> = ({
   const isDark = variant === 'dark';
 
   const iconSizes = {
-    sm: 'w-8 h-8',
-    md: 'w-10 h-10 sm:w-11 sm:h-11',
+    sm: 'w-9 h-9',
+    md: 'w-11 h-11 sm:w-12 sm:h-12',
     lg: 'w-14 h-14'
   };
 
   const textSizes = {
-    sm: 'text-sm sm:text-base',
-    md: 'text-base sm:text-xl',
+    sm: 'text-base sm:text-lg',
+    md: 'text-lg sm:text-2xl',
     lg: 'text-2xl sm:text-3xl'
   };
 
@@ -35,7 +35,7 @@ export const Logo: React.FC<LogoProps> = ({
           viewBox="0 0 100 100" 
           fill="none" 
           xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full"
+          className="w-full h-full drop-shadow-sm"
         >
           {/* Outer Square Architectural Frame */}
           <path 
@@ -69,20 +69,20 @@ export const Logo: React.FC<LogoProps> = ({
         </svg>
       </div>
 
-      {/* Official Typography Wordmark */}
+      {/* Official Typography Wordmark (Bigger, Darker, Sharper) */}
       <div className="flex flex-col justify-center">
         <div className="flex items-center leading-none">
-          <span className={`font-black tracking-tight ${textSizes[size]} ${isDark ? 'text-slate-800' : 'text-white'}`}>
+          <span className={`font-black tracking-tight ${textSizes[size]} ${isDark ? 'text-slate-950' : 'text-white'}`}>
             MARTIALS
           </span>
         </div>
         
         {showSubtitle && (
-          <div className="flex flex-col mt-0.5 leading-tight">
-            <span className={`text-[7.5px] sm:text-[8.5px] font-bold tracking-widest uppercase ${isDark ? 'text-slate-600' : 'text-slate-300'}`}>
+          <div className="flex flex-col mt-0.5 sm:mt-1 leading-tight space-y-0.5">
+            <span className={`text-[9px] sm:text-[10.5px] font-extrabold tracking-widest uppercase ${isDark ? 'text-slate-800' : 'text-slate-200'}`}>
               Management Resource
             </span>
-            <span className={`text-[6.5px] sm:text-[7.5px] font-semibold tracking-widest uppercase ${isDark ? 'text-slate-500' : 'text-sky-300'}`}>
+            <span className={`text-[8px] sm:text-[9.5px] font-bold tracking-widest uppercase ${isDark ? 'text-sky-700' : 'text-sky-300'}`}>
               Technology Solutions
             </span>
           </div>

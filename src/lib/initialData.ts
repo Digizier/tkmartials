@@ -7,12 +7,12 @@ export const initialSiteConfig: SiteConfig = {
   phoneClean: "+923018486800",
   whatsappDisplay: "0315-4362911",
   whatsappClean: "+923154362911",
-  email: "martialswebsite@gmail.com",
-  guestEmail: "editor@martials.com",
-  advertiseEmail: "Advertise@martials.com",
+  email: "info@tkmartials.com",
+  guestEmail: "editor@tkmartials.com",
+  advertiseEmail: "advertise@tkmartials.com",
   addressNotice: "Martials Corporate Head Office is transitioning to an upgraded central facility. Consultations, client briefings, and procurement orders are actively facilitated via Phone & WhatsApp.",
   googleMapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d217596.1555546252!2d74.20235472856445!3d31.520369599999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190483e58107d9%3A0xc23abe6ccc7e2462!2sLahore%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s",
-  copyrightText: "© 2026 Martials Integrated Consulting. All Rights Reserved.",
+  copyrightText: "© 2026 Martials Integrated Consulting — Textile • Insurance • Technology • Education • HR. All Rights Reserved.",
   heroHeadline: "Integrated Consulting Solutions Across Trade, Risk, Technology & Talent",
   heroSubheading: "We provide strategic consulting and operational support in Textile Raw Materials, General Insurance, Technology Utilities, Education Advisory, and HR Operations, helping organizations and individuals make confident, future-ready decisions."
 };

@@ -25,19 +25,19 @@ export const HeroSection: React.FC = () => {
           className="w-full h-full object-cover object-center opacity-30 transform scale-105"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/90 to-brand-dark/60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-brand-dark/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/95 to-brand-dark/70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-brand-dark/50" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-14 lg:py-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-14 lg:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-center">
           
-          {/* Main Hero Copy (Compact & readable on mobile) */}
-          <div className="lg:col-span-8 space-y-3 sm:space-y-5">
+          {/* Main Hero Copy */}
+          <div className="lg:col-span-8 space-y-3.5 sm:space-y-6">
             
-            {/* Pill Tag */}
-            <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-brand-light/10 border border-sky-400/30 text-sky-300 text-[10px] sm:text-xs font-semibold tracking-wide backdrop-blur-md">
-              <Sparkles className="w-3 h-3 text-sky-400 shrink-0" />
+            {/* Pill Tag (Bigger, Vibrant & High Contrast on Desktop & Mobile) */}
+            <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-sky-500/20 border border-sky-400/60 text-sky-200 text-xs sm:text-sm font-bold tracking-wide backdrop-blur-md shadow-sm">
+              <Sparkles className="w-4 h-4 text-sky-400 shrink-0" />
               <span>Multi-Sector Sourcing & Facilitation</span>
               {editMode && (
                 <button
@@ -45,66 +45,66 @@ export const HeroSection: React.FC = () => {
                   className="ml-1 p-0.5 rounded bg-sky-500 text-white hover:bg-sky-400"
                   title="Edit Headline"
                 >
-                  <Pencil className="w-2.5 h-2.5" />
+                  <Pencil className="w-3 h-3" />
                 </button>
               )}
             </div>
 
             {/* Headline */}
-            <h1 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
               Integrated Consulting Across{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-sky-200 to-emerald-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-sky-100 to-emerald-300">
                 Trade, Risk, Technology & Talent
               </span>
             </h1>
 
-            {/* Subheading */}
-            <p className="text-[11px] sm:text-base md:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed">
+            {/* Subheading (Bigger & Readable) */}
+            <p className="text-xs sm:text-base md:text-lg text-slate-200 max-w-2xl font-normal leading-relaxed">
               {siteConfig.heroSubheading}
             </p>
 
-            {/* Compact Action Buttons */}
-            <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-3.5 pt-1">
+            {/* Action Buttons */}
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-3.5 pt-1 sm:pt-2">
               <a
                 href="#contact"
-                className="col-span-2 sm:col-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-2 sm:py-3 rounded-xl bg-brand-green hover:bg-brand-greenHover text-white font-bold text-xs sm:text-sm shadow hover:shadow-emerald-900/40 transition-all"
+                className="col-span-2 sm:col-auto inline-flex items-center justify-center gap-2 px-5 sm:px-7 py-2.5 sm:py-3.5 rounded-xl bg-brand-green hover:bg-brand-greenHover text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-emerald-900/40 transition-all"
               >
                 <span>Request Consultation</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-4 h-4" />
               </a>
 
               <a
                 href="#services"
-                className="col-span-1 inline-flex items-center justify-center gap-1.5 px-3 sm:px-5 py-2 sm:py-3 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-[11px] sm:text-xs border border-white/20 backdrop-blur-md transition-all text-center"
+                className="col-span-1 inline-flex items-center justify-center gap-1.5 px-3.5 sm:px-5 py-2.5 sm:py-3.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold text-xs sm:text-sm border border-white/20 backdrop-blur-md transition-all text-center"
               >
                 <span>Our Services</span>
               </a>
 
               <button
                 onClick={() => setQuickBuyOpen(true)}
-                className="col-span-1 inline-flex items-center justify-center gap-1.5 px-3 sm:px-5 py-2 sm:py-3 rounded-xl bg-sky-500/20 hover:bg-sky-500/30 text-sky-300 font-semibold text-[11px] sm:text-xs border border-sky-400/30 backdrop-blur-md transition-all text-center cursor-pointer"
+                className="col-span-1 inline-flex items-center justify-center gap-1.5 px-3.5 sm:px-5 py-2.5 sm:py-3.5 rounded-xl bg-sky-500/20 hover:bg-sky-500/30 text-sky-200 font-semibold text-xs sm:text-sm border border-sky-400/40 backdrop-blur-md transition-all text-center cursor-pointer"
               >
-                <Layers className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+                <Layers className="w-4 h-4 text-sky-400 shrink-0" />
                 <span>Products Store</span>
               </button>
             </div>
 
-            {/* Key Value Badges */}
-            <div className="pt-2 sm:pt-4 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-1.5 sm:gap-3 text-[10px] sm:text-xs text-slate-300">
-              <div className="flex items-center gap-1">
-                <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />
+            {/* Key Value Badges (Bigger & Clearer) */}
+            <div className="pt-3 sm:pt-5 border-t border-white/10 grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 text-xs sm:text-sm text-slate-200 font-medium">
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span className="truncate">Textile Sourcing</span>
               </div>
-              <div className="flex items-center gap-1">
-                <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span className="truncate">General Insurance</span>
               </div>
-              <div className="flex items-center gap-1">
-                <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span className="truncate">Software Utilities</span>
               </div>
-              <div className="flex items-center gap-1">
-                <CheckCircle2 className="w-3 h-3 text-emerald-400 shrink-0" />
+              <div className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span className="truncate">Study Abroad & HR</span>
               </div>
             </div>
@@ -129,7 +129,7 @@ export const HeroSection: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-white">Raw Material Sourcing</h4>
-                    <p className="text-slate-400 text-[11px]">Cotton, Ring Spun Yarn, Greige & Dyed Fabrics.</p>
+                    <p className="text-slate-400 text-xs">Cotton, Ring Spun Yarn, Greige & Dyed Fabrics.</p>
                   </div>
                 </div>
 
@@ -139,7 +139,7 @@ export const HeroSection: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-white">Corporate Risk Protection</h4>
-                    <p className="text-slate-400 text-[11px]">Marine Cargo, Property & Project Insurance.</p>
+                    <p className="text-slate-400 text-xs">Marine Cargo, Property & Project Insurance.</p>
                   </div>
                 </div>
 
@@ -149,7 +149,7 @@ export const HeroSection: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-white">Direct Growth & Talent</h4>
-                    <p className="text-slate-400 text-[11px]">B2B Lead Acceleration & People Operations.</p>
+                    <p className="text-slate-400 text-xs">B2B Lead Acceleration & People Operations.</p>
                   </div>
                 </div>
               </div>
