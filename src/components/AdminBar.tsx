@@ -10,7 +10,8 @@ import {
   LogOut, 
   Eye, 
   Sparkles,
-  Settings
+  Settings,
+  FileText
 } from 'lucide-react';
 
 export const AdminBar: React.FC = () => {
@@ -50,6 +51,16 @@ export const AdminBar: React.FC = () => {
             <PlusCircle className="w-3.5 h-3.5" />
             <span>Add Product</span>
           </button>
+
+          {/* Stationery Studio (Visiting Cards & Letterhead) */}
+          <a
+            href="/stationery"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-indigo-600 hover:bg-indigo-500 text-white font-medium transition-colors shadow-sm"
+            title="Open Visiting Cards & Letterhead Studio"
+          >
+            <FileText className="w-3.5 h-3.5" />
+            <span>Stationery Studio</span>
+          </a>
 
           {/* Edit Contact / Header Config */}
           <button

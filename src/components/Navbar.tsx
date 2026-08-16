@@ -89,12 +89,18 @@ export const Navbar: React.FC = () => {
           </a>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-700">
+          <nav className="hidden lg:flex items-center gap-7 text-sm font-semibold text-slate-700">
             <a href="#about" className="hover:text-brand-primary transition-colors">About Us</a>
             <a href="#services" className="hover:text-brand-primary transition-colors">Services</a>
             <a href="#textiles" className="hover:text-brand-primary transition-colors">Textiles & Fiber</a>
             <a href="#leadership" className="hover:text-brand-primary transition-colors">Leadership</a>
             <a href="#guest" className="hover:text-brand-primary transition-colors">Guest Talks</a>
+            {isAdmin && (
+              <a href="/stationery" className="text-sky-700 hover:text-brand-primary font-bold flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-sky-50 border border-sky-200 transition-colors">
+                <span className="w-2 h-2 rounded-full bg-sky-500 animate-pulse" />
+                <span>Stationery Studio</span>
+              </a>
+            )}
             <a href="#contact" className="hover:text-brand-primary transition-colors">Contact</a>
           </nav>
 
@@ -172,6 +178,16 @@ export const Navbar: React.FC = () => {
               >
                 Become a Guest with Martials
               </a>
+              {isAdmin && (
+                <a 
+                  href="/stationery" 
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-2.5 py-1.5 rounded-lg bg-sky-50 text-sky-800 font-bold hover:bg-sky-100 flex items-center justify-between"
+                >
+                  <span>Stationery Studio (Cards & Letterhead)</span>
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-sky-600 text-white font-bold">Admin</span>
+                </a>
+              )}
               <a 
                 href="#contact" 
                 onClick={() => setMobileMenuOpen(false)}
