@@ -23,7 +23,7 @@ export default function StationeryStudio() {
   const [activeTab, setActiveTab] = useState<'letterhead' | 'card'>('letterhead');
   const [cardSide, setCardSide] = useState<'front' | 'back'>('front');
   const [cardTheme, setCardTheme] = useState<'navy' | 'white' | 'dualtone'>('navy');
-  const [letterTheme, setLetterTheme] = useState<'corporate' | 'modern'>('corporate');
+  const [letterTheme, setLetterTheme] = useState<'corporate' | 'modern' | 'executive'>('corporate');
 
   // Form State for Visiting Card
   const [cardData, setCardData] = useState({
@@ -452,18 +452,16 @@ We remain committed to elevating your organization's human capital capabilities.
               {/* Authentic A4 Paper Canvas */}
               <div 
                 id="letterhead-printable-canvas"
-                className="w-full max-w-[560px] aspect-[1/1.414] bg-white text-slate-900 rounded-2xl shadow-2xl p-7 sm:p-9 flex flex-col justify-between relative overflow-hidden border border-slate-200 print:shadow-none print:border-none print:p-0 print:m-0"
+                className="w-full max-w-[580px] bg-white text-slate-900 rounded-2xl shadow-2xl p-7 sm:p-9 flex flex-col justify-between relative overflow-hidden border border-slate-200 print:shadow-none print:border-none print:p-0 print:m-0"
               >
                 
-                {/* Subtle Official Watermark in Document Center */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-[0.035] pointer-events-none">
-                  <svg viewBox="0 0 100 100" fill="#0B192C" className="w-72 h-72">
-                    <path d="M12 85H26V76H20V20H80V76H74V85H88V12H12V85Z" />
-                    <path d="M28 76H36V54L28 58V76Z" />
-                    <path d="M40 76H48V24L40 29V76Z" />
-                    <path d="M52 76H60V35L52 40V76Z" />
-                    <path d="M64 76H72V47L64 52V76Z" />
-                  </svg>
+                {/* Subtle Official TK Watermark in Document Center */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-[0.045] pointer-events-none">
+                  <img 
+                    src="/martials_logo_transparent.png" 
+                    alt="" 
+                    className="w-72 h-52 object-contain"
+                  />
                 </div>
 
                 {/* ------------------------------------------------------------------ */}
@@ -499,7 +497,7 @@ We remain committed to elevating your organization's human capital capabilities.
                   </div>
 
                   {/* Ref No & Date Ribbon */}
-                  <div className="flex items-center justify-between text-[9px] sm:text-[10px] font-semibold text-slate-600 pt-2 pb-0.5">
+                  <div className="flex items-center justify-between text-[9.5px] sm:text-[10.5px] font-semibold text-slate-600 pt-2.5 pb-1">
                     <div className="flex items-center gap-1">
                       <span className="text-slate-400">Ref:</span>
                       <span className="font-mono font-bold text-slate-900">{letterData.refNo}</span>
@@ -512,15 +510,15 @@ We remain committed to elevating your organization's human capital capabilities.
                 </div>
 
                 {/* ------------------------------------------------------------------ */}
-                {/* LETTER CONTENT & SIGNATURE FLOW (Natural Spacing, No Huge Gap)      */}
+                {/* LETTER CONTENT & SIGNATURE FLOW (Natural Balanced Spacing)         */}
                 {/* ------------------------------------------------------------------ */}
-                <div className="py-2.5 space-y-3 text-slate-800 text-[10px] sm:text-[11px] leading-relaxed">
+                <div className="py-3 space-y-3.5 text-slate-800 text-[11px] sm:text-[12.5px] leading-relaxed">
                   
                   {/* Recipient Box */}
                   <div className="space-y-0.5 font-medium text-slate-700">
                     <p className="font-bold text-slate-950">{letterData.recipientName}</p>
-                    <p className="text-[9.5px] sm:text-[10px]">{letterData.recipientCompany}</p>
-                    <p className="text-[8.5px] sm:text-[9px] text-slate-500">{letterData.recipientAddress}</p>
+                    <p className="text-[10px] sm:text-[11.5px]">{letterData.recipientCompany}</p>
+                    <p className="text-[9px] sm:text-[10.5px] text-slate-500">{letterData.recipientAddress}</p>
                   </div>
 
                   {/* Subject */}
@@ -533,33 +531,33 @@ We remain committed to elevating your organization's human capital capabilities.
                   <p className="font-semibold text-slate-900">{letterData.salutation}</p>
 
                   {/* Editable Body Paragraphs */}
-                  <div className="whitespace-pre-line text-slate-800 text-justify leading-relaxed">
+                  <div className="whitespace-pre-line text-slate-800 text-justify leading-relaxed space-y-2">
                     {letterData.body}
                   </div>
 
-                  {/* Closing & Signature Block directly following body with compact margin */}
-                  <div className="pt-3 flex items-end justify-between">
+                  {/* Closing & Signature Block directly following body with natural spacing */}
+                  <div className="pt-4 flex items-end justify-between">
                     <div>
-                      <p className="text-[9.5px] sm:text-[10px] text-slate-600 mb-0.5">{letterData.closing}</p>
+                      <p className="text-[10.5px] sm:text-[11.5px] text-slate-600 mb-0.5">{letterData.closing}</p>
                       
                       {/* CEO Signature Simulation */}
                       {letterData.showSignature && (
-                        <div className="font-serif italic text-base sm:text-lg font-bold text-sky-900 tracking-wider py-0.5 border-b border-slate-300 inline-block">
+                        <div className="font-serif italic text-base sm:text-xl font-bold text-sky-900 tracking-wider py-0.5 border-b border-slate-300 inline-block">
                           M. Talha Khan
                         </div>
                       )}
 
-                      <p className="font-bold text-slate-950 text-[9.5px] sm:text-[10.5px] mt-0.5">{letterData.signatoryName}</p>
-                      <p className="text-[8.5px] sm:text-[9.5px] text-sky-700 font-semibold">{letterData.signatoryTitle}</p>
-                      <p className="text-[8px] sm:text-[8.5px] text-slate-500">Martials Integrated Consulting</p>
+                      <p className="font-bold text-slate-950 text-[10.5px] sm:text-[12px] mt-0.5">{letterData.signatoryName}</p>
+                      <p className="text-[9.5px] sm:text-[10.5px] text-sky-700 font-semibold">{letterData.signatoryTitle}</p>
+                      <p className="text-[8.5px] sm:text-[9.5px] text-slate-500">Martials Integrated Consulting</p>
                     </div>
 
                     {/* Official Corporate Seal Badge */}
                     {letterData.showStamp && (
-                      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-dashed border-sky-700/60 p-1 flex flex-col items-center justify-center text-center text-sky-800 rotate-[-12deg] select-none opacity-85">
-                        <span className="text-[6.5px] font-black tracking-widest uppercase">MARTIALS</span>
-                        <span className="text-[5.5px] font-bold">OFFICIAL SEAL</span>
-                        <span className="text-[5.5px] text-slate-600">LAHORE • PK</span>
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border-2 border-dashed border-sky-700/60 p-1 flex flex-col items-center justify-center text-center text-sky-800 rotate-[-12deg] select-none opacity-85">
+                        <span className="text-[7px] sm:text-[8px] font-black tracking-widest uppercase">MARTIALS</span>
+                        <span className="text-[6px] sm:text-[7px] font-bold">OFFICIAL SEAL</span>
+                        <span className="text-[6px] sm:text-[7px] text-slate-600">LAHORE • PK</span>
                       </div>
                     )}
                   </div>
@@ -569,7 +567,7 @@ We remain committed to elevating your organization's human capital capabilities.
                 {/* ------------------------------------------------------------------ */}
                 {/* CORPORATE BOTTOM FOOTER BAR                                        */}
                 {/* ------------------------------------------------------------------ */}
-                <div className="border-t border-slate-200 pt-2 text-center text-[7.5px] sm:text-[8.5px] text-slate-500 space-y-0.5 mt-auto">
+                <div className="border-t border-slate-200 pt-3 text-center text-[8px] sm:text-[9px] text-slate-500 space-y-0.5 mt-8">
                   <p className="font-semibold text-slate-700">
                     Martials Integrated Consulting • {cardData.address}
                   </p>
@@ -584,21 +582,21 @@ We remain committed to elevating your organization's human capital capabilities.
           )}
 
           {/* ========================================================================= */}
-          {/* VISITING CARD PREVIEW (Cleaned: Single Company Name at Top Only)          */}
+          {/* VISITING CARD PREVIEW (Never Cuts Off in Print / PDF)                     */}
           {/* ========================================================================= */}
           {activeTab === 'card' && (
             <div className="w-full flex flex-col items-center space-y-5 print:block print:w-full">
               
               <div 
                 id="visitingcard-printable-canvas"
-                className="relative w-full max-w-[460px] aspect-[1.75/1] rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 border border-slate-700/50 print:shadow-none print:border print:m-0"
+                className="relative w-full max-w-[460px] aspect-[1.75/1] rounded-2xl shadow-2xl overflow-hidden transition-all duration-300 border border-slate-700/50 print:shadow-none print:border print:m-0 print:aspect-auto print:overflow-visible print:max-w-none"
               >
                 
                 {/* ------------------------------------------------------------------ */}
                 {/* CARD FRONT SIDE                                                    */}
                 {/* ------------------------------------------------------------------ */}
                 {cardSide === 'front' && (
-                  <div className={`w-full h-full p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden ${
+                  <div className={`w-full h-full p-4 sm:p-5 flex flex-col justify-between relative overflow-hidden print:overflow-visible ${
                     cardTheme === 'navy' 
                       ? 'bg-gradient-to-br from-[#0B192C] via-[#0D213A] to-[#060D17] text-white' 
                       : cardTheme === 'white'
@@ -606,14 +604,13 @@ We remain committed to elevating your organization's human capital capabilities.
                       : 'bg-gradient-to-r from-[#0B192C] via-[#0B192C] to-[#1B64B3] text-white'
                   }`}>
                     
-                    <div className="absolute right-[-20px] bottom-[-20px] opacity-10 pointer-events-none w-48 h-48">
-                      <svg viewBox="0 0 100 100" fill="currentColor">
-                        <path d="M12 85H26V76H20V20H80V76H74V85H88V12H12V85Z" />
-                        <path d="M28 76H36V54L28 58V76Z" />
-                        <path d="M40 76H48V24L40 29V76Z" />
-                        <path d="M52 76H60V35L52 40V76Z" />
-                        <path d="M64 76H72V47L64 52V76Z" />
-                      </svg>
+                    {/* Subtle TK Watermark on Card Front */}
+                    <div className="absolute right-[-10px] bottom-[-10px] opacity-10 pointer-events-none w-36 h-28 flex items-center justify-center">
+                      <img 
+                        src="/martials_logo_white_k.png" 
+                        alt="" 
+                        className="w-full h-full object-contain"
+                      />
                     </div>
 
                     {/* Top Row: Logo with Full Subtitle Once */}
@@ -635,22 +632,22 @@ We remain committed to elevating your organization's human capital capabilities.
                       </div>
                     </div>
 
-                    {/* Middle Section: Executive Name & Title (Clean: Redundant subtitle removed) */}
-                    <div className="relative z-10 my-auto">
+                    {/* Middle Section: Executive Name & Title (Clean: Single Title, No Repetition) */}
+                    <div className="relative z-10 my-auto py-1">
                       <h2 className={`text-xl sm:text-2xl font-black tracking-tight leading-tight ${
                         cardTheme === 'white' ? 'text-slate-950' : 'text-white'
                       }`}>
                         {cardData.name}
                       </h2>
-                      <div className="flex items-center gap-2 mt-1">
-                        <span className="text-xs sm:text-sm font-extrabold text-sky-400 tracking-wide">
+                      <div className="flex items-center gap-2 mt-0.5">
+                        <span className="card-title-text text-xs sm:text-sm font-extrabold text-sky-400 tracking-wide">
                           {cardData.title}
                         </span>
                       </div>
                     </div>
 
-                    {/* Bottom Row: Contact Grid */}
-                    <div className="relative z-10 pt-2 border-t border-white/10 grid grid-cols-2 gap-x-3 gap-y-1 text-[9.5px] sm:text-[10.5px]">
+                    {/* Bottom Row: Contact Grid (Compact & Fits Perfectly) */}
+                    <div className="card-contact-grid relative z-10 pt-2 border-t border-white/10 grid grid-cols-2 gap-x-3 gap-y-1 text-[9px] sm:text-[10px]">
                       <div className="flex items-center gap-1.5">
                         <Phone className="w-3 h-3 text-sky-400 shrink-0" />
                         <span className="font-semibold">{cardData.phone}</span>
@@ -668,7 +665,7 @@ We remain committed to elevating your organization's human capital capabilities.
                         <span className="font-bold text-sky-400 truncate">{cardData.website}</span>
                       </div>
                       {cardData.address && (
-                        <div className="col-span-2 flex items-center gap-1.5 text-[8.5px] text-slate-400 mt-0.5 truncate">
+                        <div className="col-span-2 flex items-center gap-1.5 text-[8px] text-slate-300 mt-0.5 truncate">
                           <MapPin className="w-2.5 h-2.5 text-rose-400 shrink-0" />
                           <span className="truncate">{cardData.address}</span>
                         </div>
@@ -692,14 +689,12 @@ We remain committed to elevating your organization's human capital capabilities.
                     
                     <div className="absolute inset-2 border border-sky-400/30 rounded-xl pointer-events-none" />
 
-                    <div className="w-16 h-16 sm:w-18 sm:h-18 mb-2.5 drop-shadow-md">
-                      <svg viewBox="0 0 100 100" fill="none" className="w-full h-full">
-                        <path d="M12 85H26V76H20V20H80V76H74V85H88V12H12V85Z" fill="#38BDF8" />
-                        <path d="M28 76H36V54L28 58V76Z" fill="#38BDF8" />
-                        <path d="M40 76H48V24L40 29V76Z" fill="#38BDF8" />
-                        <path d="M52 76H60V35L52 40V76Z" fill="#38BDF8" />
-                        <path d="M64 76H72V47L64 52V76Z" fill="#38BDF8" />
-                      </svg>
+                    <div className="w-20 h-16 sm:w-24 sm:h-20 mb-2 drop-shadow-md flex items-center justify-center">
+                      <img 
+                        src="/martials_logo_white_k.png" 
+                        alt="Martials TK Logo"
+                        className="w-full h-full object-contain"
+                      />
                     </div>
 
                     <h1 className="text-xl sm:text-2xl font-black tracking-widest text-white">
@@ -755,16 +750,16 @@ We remain committed to elevating your organization's human capital capabilities.
 
       </div>
 
-      {/* Global CSS for Clean High-Res Printing with Exact Standard A4 Proportions */}
+      {/* Global CSS for Clean High-Res Printing with Exact Proportions & Zero Cut-Offs */}
       <style jsx global>{`
         @page {
-          size: A4 portrait;
-          margin: 0;
+          size: auto;
+          margin: 10mm 12mm;
         }
         @media print {
           html, body {
-            width: 210mm !important;
-            height: 297mm !important;
+            width: 100% !important;
+            height: auto !important;
             margin: 0 !important;
             padding: 0 !important;
             background: #ffffff !important;
@@ -776,10 +771,12 @@ We remain committed to elevating your organization's human capital capabilities.
             display: none !important;
           }
           #letterhead-printable-canvas {
-            width: 210mm !important;
-            height: 297mm !important;
-            max-height: 297mm !important;
-            padding: 16mm 18mm 14mm 18mm !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+            min-height: 250mm !important;
+            max-height: none !important;
+            padding: 0 !important;
             margin: 0 !important;
             border: none !important;
             border-radius: 0 !important;
@@ -792,13 +789,42 @@ We remain committed to elevating your organization's human capital capabilities.
           }
           #visitingcard-printable-canvas {
             width: 88.9mm !important;
-            height: 50.8mm !important;
-            margin: 30mm auto !important;
+            min-height: 50.8mm !important;
+            height: auto !important;
+            max-height: none !important;
+            overflow: visible !important;
+            margin: 25mm auto !important;
             border: 1px solid #cbd5e1 !important;
+            border-radius: 3mm !important;
             box-shadow: none !important;
             page-break-inside: avoid !important;
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
+          }
+          #visitingcard-printable-canvas > div {
+            padding: 4mm 5mm !important;
+            min-height: 50.8mm !important;
+            height: auto !important;
+            box-sizing: border-box !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+          }
+          #visitingcard-printable-canvas h2 {
+            font-size: 14pt !important;
+            line-height: 1.15 !important;
+          }
+          #visitingcard-printable-canvas .card-title-text {
+            font-size: 8.5pt !important;
+          }
+          #visitingcard-printable-canvas .card-contact-grid {
+            font-size: 7.5pt !important;
+            line-height: 1.3 !important;
+            padding-top: 2mm !important;
+          }
+          #visitingcard-printable-canvas svg {
+            width: 9pt !important;
+            height: 9pt !important;
           }
         }
       `}</style>

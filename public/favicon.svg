@@ -1,16 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
-  <!-- Outer Corporate Blue Frame -->
-  <path d="M15 80H28V72H23V23H77V72H72V80H85V15H15V80Z" fill="#1B64B3"/>
-  
-  <!-- Bar 1 (Left Short) -->
-  <path d="M30 72H38V54L30 58V72Z" fill="#1B64B3"/>
-  
-  <!-- Bar 2 (Center-Left Tallest) -->
-  <path d="M42 72H50V25L42 30V72Z" fill="#1B64B3"/>
-  
-  <!-- Bar 3 (Center-Right Medium-Tall) -->
-  <path d="M54 72H62V36L54 41V72Z" fill="#1B64B3"/>
-  
-  <!-- Bar 4 (Right Medium) -->
-  <path d="M66 72H74V48L66 53V72Z" fill="#1B64B3"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 100" fill="none">
+  <!-- Bright Sky Blue "T" -->
+  <!-- Top Bar with angled left bevel terminal -->
+  <path d="M12 20 L24 31 H78 V20 H12 Z" fill="#00A3FF" />
+  <!-- Vertical Stem of T -->
+  <path d="M43 31 H55 V82 H43 V31 Z" fill="#00A3FF" />
+
+  <!-- Bold Black / Charcoal "K" -->
+  <!-- Upper Right Diagonal Arm -->
+  <path d="M72 31 L90 20 H108 L78 52 L67 42 L72 31 Z" fill="#111827" />
+  <!-- Lower Spine Curve and Sweeping Leg -->
+  <path d="M60 52 C57 55 57 59 60 63 L77 82 H102 C89 68 76 54 78 52 C74 48 70 48 67 52 Z" fill="#111827" />
+  <!-- Lower Left Base Element -->
+  <path d="M57 62 C57 73 63 80 72 82 H57 V62 Z" fill="#111827" />
 </svg>

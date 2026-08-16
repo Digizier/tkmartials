@@ -16,9 +16,9 @@ export const Logo: React.FC<LogoProps> = ({
   const isDark = variant === 'dark';
 
   const iconSizes = {
-    sm: 'w-9 h-9',
-    md: 'w-11 h-11 sm:w-12 sm:h-12',
-    lg: 'w-14 h-14'
+    sm: 'w-10 h-8 sm:w-11 sm:h-9',
+    md: 'w-12 h-9 sm:w-14 sm:h-10',
+    lg: 'w-16 h-12'
   };
 
   const textSizes = {
@@ -29,47 +29,17 @@ export const Logo: React.FC<LogoProps> = ({
 
   return (
     <div className="flex items-center gap-2.5 sm:gap-3 group">
-      {/* Official Martials Architectural Crest Emblem */}
-      <div className={`${iconSizes[size]} shrink-0 transition-transform duration-300 group-hover:scale-105 flex items-center justify-center`}>
-        <svg 
-          viewBox="0 0 100 100" 
-          fill="none" 
-          xmlns="http://www.w3.org/2000/svg"
-          className="w-full h-full drop-shadow-sm"
-        >
-          {/* Outer Square Architectural Frame */}
-          <path 
-            d="M12 85H26V76H20V20H80V76H74V85H88V12H12V85Z" 
-            fill="#1B64B3" 
-          />
-          
-          {/* Column 1 (Left Short) */}
-          <path 
-            d="M28 76H36V54L28 58V76Z" 
-            fill="#1B64B3" 
-          />
-          
-          {/* Column 2 (Center-Left Tallest) */}
-          <path 
-            d="M40 76H48V24L40 29V76Z" 
-            fill="#1B64B3" 
-          />
-          
-          {/* Column 3 (Center-Right Medium-Tall) */}
-          <path 
-            d="M52 76H60V35L52 40V76Z" 
-            fill="#1B64B3" 
-          />
-          
-          {/* Column 4 (Right Medium) */}
-          <path 
-            d="M64 76H72V47L64 52V76Z" 
-            fill="#1B64B3" 
-          />
-        </svg>
+      {/* Official Martials TK Monogram Logo Emblem */}
+      <div className={`${iconSizes[size]} shrink-0 transition-transform duration-300 group-hover:scale-105 flex items-center justify-center relative`}>
+        <img 
+          src={isDark ? "/martials_logo_transparent.png" : "/martials_logo_white_k.png"}
+          alt="Martials TK Logo" 
+          className="w-full h-full object-contain drop-shadow-sm"
+          loading="eager"
+        />
       </div>
 
-      {/* Official Typography Wordmark (Bigger, Darker, Sharper) */}
+      {/* Official Typography Wordmark (Untouched & Exact) */}
       <div className="flex flex-col justify-center">
         <div className="flex items-center leading-none">
           <span className={`font-black tracking-tight ${textSizes[size]} ${isDark ? 'text-slate-950' : 'text-white'}`}>
