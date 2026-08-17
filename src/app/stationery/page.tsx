@@ -22,7 +22,7 @@ export default function StationeryStudio() {
   // Studio Mode State
   const [activeTab, setActiveTab] = useState<'letterhead' | 'card'>('letterhead');
   const [cardSide, setCardSide] = useState<'front' | 'back'>('front');
-  const [cardTheme, setCardTheme] = useState<'navy' | 'white' | 'dualtone'>('navy');
+  const [cardTheme, setCardTheme] = useState<'navy' | 'white' | 'dualtone' | 'lightblue' | 'slate'>('navy');
   const [letterTheme, setLetterTheme] = useState<'corporate' | 'modern' | 'executive'>('corporate');
 
   // Form State for Visiting Card
@@ -65,6 +65,9 @@ Our dedicated trade desks ensure complete price index transparency, certified qu
   const handlePrint = () => {
     window.print();
   };
+
+  // Helper boolean for themes that use dark text
+  const isDarkTextCard = cardTheme === 'white' || cardTheme === 'lightblue';
 
   // Sample Letter Templates
   const applyLetterTemplate = (type: 'sourcing' | 'insurance' | 'hr') => {
@@ -310,12 +313,12 @@ We remain committed to elevating your organization's human capital capabilities.
                 </button>
               </div>
 
-              {/* Theme Selector */}
+              {/* Theme Selector (5 Luxury Corporate Themes) */}
               <div className="space-y-1.5">
                 <label className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                  Design Theme Style
+                  Design Theme Style (5 Executive Themes)
                 </label>
-                <div className="grid grid-cols-3 gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                   <button
                     onClick={() => setCardTheme('navy')}
                     className={`p-2.5 rounded-xl border text-xs font-bold transition-all text-center ${
@@ -345,6 +348,26 @@ We remain committed to elevating your organization's human capital capabilities.
                     }`}
                   >
                     3. Dual-Tone
+                  </button>
+                  <button
+                    onClick={() => setCardTheme('lightblue')}
+                    className={`p-2.5 rounded-xl border text-xs font-bold transition-all text-center ${
+                      cardTheme === 'lightblue'
+                        ? 'bg-sky-900/70 border-sky-300 text-sky-200 shadow'
+                        : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-white'
+                    }`}
+                  >
+                    4. Light Blue (Ice)
+                  </button>
+                  <button
+                    onClick={() => setCardTheme('slate')}
+                    className={`p-2.5 rounded-xl border text-xs font-bold transition-all text-center ${
+                      cardTheme === 'slate'
+                        ? 'bg-slate-800 border-sky-400 text-white shadow'
+                        : 'bg-slate-950 border-slate-800 text-slate-400 hover:text-white'
+                    }`}
+                  >
+                    5. Matte Slate
                   </button>
                 </div>
               </div>
@@ -582,7 +605,7 @@ We remain committed to elevating your organization's human capital capabilities.
           )}
 
           {/* ========================================================================= */}
-          {/* VISITING CARD PREVIEW (Never Cuts Off in Print / PDF)                     */}
+          {/* VISITING CARD PREVIEW (Perfect TK Martials Front Lockup & 5 Themes)        */}
           {/* ========================================================================= */}
           {activeTab === 'card' && (
             <div className="w-full flex flex-col items-center space-y-5 print:block print:w-full">
@@ -601,30 +624,47 @@ We remain committed to elevating your organization's human capital capabilities.
                       ? 'bg-gradient-to-br from-[#0B192C] via-[#0D213A] to-[#060D17] text-white' 
                       : cardTheme === 'white'
                       ? 'bg-white text-slate-900 border-2 border-slate-200'
-                      : 'bg-gradient-to-r from-[#0B192C] via-[#0B192C] to-[#1B64B3] text-white'
+                      : cardTheme === 'dualtone'
+                      ? 'bg-gradient-to-r from-[#0B192C] via-[#0B192C] to-[#1B64B3] text-white'
+                      : cardTheme === 'lightblue'
+                      ? 'bg-gradient-to-br from-[#E0F2FE] via-[#BAE6FD] to-[#93C5FD] text-slate-950 border border-sky-300 shadow-md'
+                      : 'bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#0F172A] text-white border border-slate-700'
                   }`}>
                     
                     {/* Subtle TK Watermark on Card Front */}
                     <div className="absolute right-[-10px] bottom-[-10px] opacity-10 pointer-events-none w-36 h-28 flex items-center justify-center">
                       <img 
-                        src="/martials_logo_white_k.png" 
+                        src={isDarkTextCard ? "/martials_logo_transparent.png" : "/martials_logo_white_k.png"} 
                         alt="" 
                         className="w-full h-full object-contain"
                       />
                     </div>
 
-                    {/* Top Row: Logo with Full Subtitle Once */}
-                    <div className="flex items-start justify-between gap-3 relative z-10">
-                      <Logo 
-                        variant={cardTheme === 'white' ? 'dark' : 'light'} 
-                        size="sm" 
-                        showSubtitle={true} 
-                      />
+                    {/* Top Row: Clean & Balanced TK Logo + MARTIALS Lockup (No subtitle on front) */}
+                    <div className="flex items-center justify-between gap-3 relative z-10">
+                      <div className="flex items-center gap-2.5">
+                        <div className="w-10 h-7 sm:w-11 sm:h-8 shrink-0 flex items-center justify-center">
+                          <img 
+                            src={isDarkTextCard ? "/martials_logo_transparent.png" : "/martials_logo_white_k.png"}
+                            alt="TK Logo" 
+                            className="w-full h-full object-contain drop-shadow-sm"
+                          />
+                        </div>
+                        <span className={`font-black tracking-tight text-lg sm:text-xl leading-none ${
+                          isDarkTextCard ? 'text-slate-950' : 'text-white'
+                        }`}>
+                          MARTIALS
+                        </span>
+                      </div>
 
                       <div className="text-right">
-                        <span className={`text-[9px] font-extrabold uppercase tracking-widest px-2 py-0.5 rounded-full ${
+                        <span className={`text-[9px] font-extrabold uppercase tracking-widest px-2.5 py-0.5 rounded-full ${
                           cardTheme === 'white'
-                            ? 'bg-sky-100 text-sky-800'
+                            ? 'bg-sky-100 text-sky-800 border border-sky-200'
+                            : cardTheme === 'lightblue'
+                            ? 'bg-sky-700 text-white shadow-sm'
+                            : cardTheme === 'slate'
+                            ? 'bg-slate-700 text-slate-200 border border-slate-600'
                             : 'bg-sky-500/20 text-sky-300 border border-sky-400/30'
                         }`}>
                           Executive
@@ -635,38 +675,48 @@ We remain committed to elevating your organization's human capital capabilities.
                     {/* Middle Section: Executive Name & Title (Clean: Single Title, No Repetition) */}
                     <div className="relative z-10 my-auto py-1">
                       <h2 className={`text-xl sm:text-2xl font-black tracking-tight leading-tight ${
-                        cardTheme === 'white' ? 'text-slate-950' : 'text-white'
+                        isDarkTextCard ? 'text-slate-950' : 'text-white'
                       }`}>
                         {cardData.name}
                       </h2>
                       <div className="flex items-center gap-2 mt-0.5">
-                        <span className="card-title-text text-xs sm:text-sm font-extrabold text-sky-400 tracking-wide">
+                        <span className={`card-title-text text-xs sm:text-sm font-extrabold tracking-wide ${
+                          cardTheme === 'lightblue' 
+                            ? 'text-sky-800' 
+                            : cardTheme === 'white' 
+                            ? 'text-sky-600' 
+                            : 'text-sky-400'
+                        }`}>
                           {cardData.title}
                         </span>
                       </div>
                     </div>
 
                     {/* Bottom Row: Contact Grid (Compact & Fits Perfectly) */}
-                    <div className="card-contact-grid relative z-10 pt-2 border-t border-white/10 grid grid-cols-2 gap-x-3 gap-y-1 text-[9px] sm:text-[10px]">
+                    <div className={`card-contact-grid relative z-10 pt-2 border-t grid grid-cols-2 gap-x-3 gap-y-1 text-[9px] sm:text-[10px] ${
+                      isDarkTextCard ? 'border-slate-300/80 text-slate-800' : 'border-white/10 text-slate-300'
+                    }`}>
                       <div className="flex items-center gap-1.5">
-                        <Phone className="w-3 h-3 text-sky-400 shrink-0" />
+                        <Phone className={`w-3 h-3 shrink-0 ${isDarkTextCard ? 'text-sky-700' : 'text-sky-400'}`} />
                         <span className="font-semibold">{cardData.phone}</span>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <MessageCircle className="w-3 h-3 text-emerald-400 shrink-0" />
+                        <MessageCircle className={`w-3 h-3 shrink-0 ${isDarkTextCard ? 'text-emerald-700' : 'text-emerald-400'}`} />
                         <span className="font-semibold">{cardData.whatsapp}</span>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <Mail className="w-3 h-3 text-indigo-400 shrink-0" />
+                        <Mail className={`w-3 h-3 shrink-0 ${isDarkTextCard ? 'text-indigo-700' : 'text-indigo-400'}`} />
                         <span className="truncate">{cardData.personalEmail}</span>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <Globe className="w-3 h-3 text-sky-400 shrink-0" />
-                        <span className="font-bold text-sky-400 truncate">{cardData.website}</span>
+                        <Globe className={`w-3 h-3 shrink-0 ${isDarkTextCard ? 'text-sky-700' : 'text-sky-400'}`} />
+                        <span className={`font-bold truncate ${isDarkTextCard ? 'text-sky-800' : 'text-sky-400'}`}>{cardData.website}</span>
                       </div>
                       {cardData.address && (
-                        <div className="col-span-2 flex items-center gap-1.5 text-[8px] text-slate-300 mt-0.5 truncate">
-                          <MapPin className="w-2.5 h-2.5 text-rose-400 shrink-0" />
+                        <div className={`col-span-2 flex items-center gap-1.5 text-[8px] mt-0.5 truncate ${
+                          isDarkTextCard ? 'text-slate-600' : 'text-slate-300'
+                        }`}>
+                          <MapPin className="w-2.5 h-2.5 text-rose-500 shrink-0" />
                           <span className="truncate">{cardData.address}</span>
                         </div>
                       )}
@@ -676,7 +726,7 @@ We remain committed to elevating your organization's human capital capabilities.
                 )}
 
                 {/* ------------------------------------------------------------------ */}
-                {/* CARD BACK SIDE                                                     */}
+                {/* CARD BACK SIDE (Holds Full Management Resource Tech Solutions)     */}
                 {/* ------------------------------------------------------------------ */}
                 {cardSide === 'back' && (
                   <div className={`w-full h-full p-6 flex flex-col items-center justify-center text-center relative overflow-hidden ${
@@ -684,7 +734,11 @@ We remain committed to elevating your organization's human capital capabilities.
                       ? 'bg-gradient-to-br from-[#0B192C] via-[#0D213A] to-[#060D17] text-white' 
                       : cardTheme === 'white'
                       ? 'bg-slate-900 text-white'
-                      : 'bg-gradient-to-tr from-[#0B192C] via-[#1B64B3] to-[#0B192C] text-white'
+                      : cardTheme === 'dualtone'
+                      ? 'bg-gradient-to-tr from-[#0B192C] via-[#1B64B3] to-[#0B192C] text-white'
+                      : cardTheme === 'lightblue'
+                      ? 'bg-gradient-to-br from-[#0284C7] via-[#0369A1] to-[#075985] text-white'
+                      : 'bg-gradient-to-br from-[#020617] via-[#0F172A] to-[#020617] text-white border border-slate-700'
                   }`}>
                     
                     <div className="absolute inset-2 border border-sky-400/30 rounded-xl pointer-events-none" />
